@@ -6,7 +6,7 @@
 Docker主要提供了两种方式做数据的持久化
 
 - Data Volume，卷挂载: 由Docker管理
-- Bind Mount，绑定挂载: 由用户指定存储的数据具体mount在系统什么位置
+- Bind Mount，绑定挂载: 由用户指定主机上的文件/目录挂载到容器中
 
 
 
@@ -31,3 +31,26 @@ docker run -d -v nginx-log:/var/log/nginx nginx
 使用`docker volume inspect`可以查看到该卷的具体信息
 
 ![image-20260103195242400](./images/image-20260103195242400.png)
+
+如果需要在多个主机共享存储，可以参考:
+
+https://docs.docker.com/engine/storage/volumes/#use-a-volume-driver
+
+
+
+# Bind mounts
+
+格式:
+
+```
+docker run -v <host-path>:<container-path>[:opts]
+```
+
+如我期望把`/Users/huangtaihong/workspace/nginx`挂载到容器内
+
+```
+docker run -d -v /Users/huangtaihong/workspace/nginx:/var/log/nginx nginx
+```
+
+
+
