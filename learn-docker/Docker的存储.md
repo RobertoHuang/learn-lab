@@ -26,7 +26,7 @@ docker run -d -v nginx-log:/var/log/nginx nginx
 
 通过`docker volume ls` 查看到已经创建的卷
 
-![image-20260103195145274](./images/image-20260103195145274.png)
+![image-20260106003906648](./images/image-20260106003906648.png)
 
 使用`docker volume inspect`可以查看到该卷的具体信息
 

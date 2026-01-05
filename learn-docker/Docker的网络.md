@@ -1,6 +1,6 @@
 容器网络是指容器相互连接和通信，以及与非Docker服务连接和通信的能力
 
-# Bridge网络
+# bridge网络
 
 默认情况下Docker提供三种网络
 
@@ -26,7 +26,7 @@ docker container run -d  -p 80:80 nginx
 
 
 
-# Host网络
+# host网络
 
 使用场景: 为了网络的性能优化
 
@@ -48,7 +48,32 @@ docker run --net=host -d nginx
 
 
 
+# none网络
+
+`none`网络是Docker提供的完全隔离模式，当你为一个容器分配一个`none`网络时，这个容器就像是一个没插网线的断网的主机
+
+进入这种容器，通过`ip addr`命令只能看到一个本地回环接口`lo`，没有`eth0`没有IP地址，也没有任何外部路由。他适用于敏感数据处理等场景
+
+
+
 # Docker网络互通原理推荐学习
 
+在学习Docker网络过程中，也补充了一些网络相关的知识点
 
+如果你是一个好奇宝宝的话，可以通过以下教程深入理解Docker的网络知识
+
+- [这一次，让我在百度告诉你，当你请求www.baidu.com时都发生了什么？](https://mp.weixin.qq.com/s/YiC-WHmn-DQwUzGsN3TXrg)
+
+- [放点存货：白日梦的Docker网络笔记](https://mp.weixin.qq.com/s/W8TIdjs3RrqFA92X79yyKw)
+- [你还不懂Docker容器间网络互联原理吗？来白嫖啊...... 建议收藏哦](https://mp.weixin.qq.com/s/Pfp91R7bWz-QKhDD_JerPg)
+- [白日梦的网络笔记：iptables、防火墙](https://mp.weixin.qq.com/s/bwK_ECwmL6OAjKHkiqGNpA)
+
+- [用iptables搭建一套强大的安全防护盾](https://www.imooc.com/learn/389)
+
+怎么验证自己看完这些文章之后，对Docker网络的了解程度呢？你可以尝试一下 是否能回答如下这些问题
+
+- Docker容器间网络通信是怎么实现的？
+- Docker容器是如何做到能访问外网的？
+- 外部服务器对Docker容器的访问 实现原理？
+- Docker网络不同的网桥之前是怎么做到网络隔离的？为什么需要两阶段？
 
